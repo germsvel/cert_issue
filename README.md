@@ -8,7 +8,7 @@ Erlang 21.2.5, the requests fail after the cert is generated. Updating to Erlang
 
   * Install this app
   * Generate certs via `mix phx.gen.cert`
+  * (set chrome://flags/#allow-insecure-localhost to true if using chrome)
   * Navigate to `https://localhost:4001`
-    * (set chrome://flags/#allow-insecure-localhost to true if using chrome)
   * Accept the "unsafe" warning in the browser
   * Browser still cannot reach localhost
