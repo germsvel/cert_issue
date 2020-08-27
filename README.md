@@ -1,20 +1,14 @@
 # CertIssue
 
-To start your Phoenix server:
+When trying to use `mix phx.gen.cert` with Phoenix 1.5.4, Elixir 1.10.3, and
+Erlang 21.2.5, the requests fail after the cert is generated. Updating to Erlang
+21.3 fixes the issue.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+## Reproduction steps
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+  * Install this app
+  * Generate certs via `mix phx.gen.cert`
+  * Navigate to `https://localhost:4001`
+    * (set chrome://flags/#allow-insecure-localhost to true if using chrome)
+  * Accept the "unsafe" warning in the browser
+  * Browser still cannot reach localhost
